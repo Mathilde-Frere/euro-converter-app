@@ -14,6 +14,9 @@ const Currencies = ({ currencies }) => {
     return <Currency key={currency.name} text={currencyName} />;
   });
 
+  // Version condensée
+  // const currenciesList = currencies.map((currency) => <Currency key={currency.name} text={currency.name} />);
+
   return (
     <div className="currencies">
       <p className="currencies__title">Currencies</p>
