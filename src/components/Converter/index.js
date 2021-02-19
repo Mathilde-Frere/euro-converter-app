@@ -33,7 +33,7 @@ class Converter extends React.Component {
     return (
       <div className="converter">
         <Header baseAmount={1} />
-        <Toggler onClick={this.toggle} />
+        <Toggler onClickButton={this.toggle} />
         {open && (
           <Currencies currencies={currenciesData} />
         )}
