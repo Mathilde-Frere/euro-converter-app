@@ -13,6 +13,7 @@ import './style.scss';
 
 // == Composant
 class Converter extends React.Component {
+  // == State
   // Définition du state du composant Converter
   state = {
     open: true,
@@ -20,6 +21,22 @@ class Converter extends React.Component {
     currency: 'United States Dollar',
     search: '',
   };
+
+  // == Lifecycles
+  componentDidMount() {
+    this.changePageTitleEffect();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // Récupération de la valeur de currency du state courant
+    const { currency } = this.state;
+    // Comparaison avec l'ancien state
+    if (currency !== prevState.currency) {
+      this.changePageTitleEffect();
+    }
+  }
+
+  // == Méthodes modifiant le state
 
   // Fonction chargée de faire varier la valeur de la propriété open du state
   toggle = () => {
@@ -87,6 +104,13 @@ class Converter extends React.Component {
     });
   }
 
+  // Fonction chargée de modifier le titre de la page en fonction de la devise choisie
+  changePageTitleEffect = () => {
+    const { currency } = this.state;
+    document.title = `Euro to ${currency}`;
+  }
+
+  // == Render
   render() {
     const {
       open,
