@@ -11,7 +11,7 @@ import './style.scss';
 // == Composant
 const Converter = () => (
   <div className="converter">
-    <Header />
+    <Header baseAmount={1} />
     <Currencies />
     <Amount />
   </div>
