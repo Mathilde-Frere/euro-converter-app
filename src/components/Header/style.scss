@@ -11,4 +11,15 @@
     font-weight: v.$text-bold;
     margin-bottom: v.$gutter;
   }
+  
+  &__input {
+    background-color: transparent;
+    border: none;
+    font-family: 'Spartan', sans-serif;
+    color: v.$color-light;
+    width: 100px;
+    font-size: 1em;
+    text-align: center;
+    padding: v.$gutter / 2 0;
+  }
 }

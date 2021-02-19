@@ -80,6 +80,13 @@ class Converter extends React.Component {
     return filteredCurrencies;
   }
 
+  // Fonction chargée de modifier la valeur du montant de base qui sera converti (baseAmount)
+  setBaseAmount = (value) => {
+    this.setState({
+      baseAmount: value,
+    });
+  }
+
   render() {
     const {
       open,
@@ -94,7 +101,10 @@ class Converter extends React.Component {
 
     return (
       <div className="converter">
-        <Header baseAmount={baseAmount} />
+        <Header
+          baseAmount={baseAmount}
+          setBaseAmount={this.setBaseAmount}
+        />
         <Toggler onClickButton={this.toggle} isOpen={open} />
         {open && (
           <Currencies
