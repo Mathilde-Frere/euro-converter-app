@@ -6,9 +6,16 @@
   max-height: 50vh;
   overflow: auto;
 
-  &__title {
+  &__input {
     font-weight: v.$text-bold;
-    padding: v.$gutter v.$gutter * 1.5;
+    padding: v.$gutter * 2.5 v.$gutter * 1.5 v.$gutter;
+    border: none;
+    width: 100%;
+    font-size: 1em;
+    color: v.$color-primary;
+    &::placeholder {
+      color: v.$color-alt;
+    }
   }
 }
 

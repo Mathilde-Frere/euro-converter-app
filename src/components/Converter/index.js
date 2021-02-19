@@ -15,7 +15,7 @@ import './style.scss';
 class Converter extends React.Component {
   // Définition du state du composant Converter
   state = {
-    open: false,
+    open: true,
     baseAmount: 1,
     currency: 'United States Dollar',
   };
@@ -43,6 +43,7 @@ class Converter extends React.Component {
 
   // Fonction chargée de changer la valeur de la propriété currency du state
   setCurrency = (currency) => {
+    console.log('je veux changer la valeur de currency', currency);
     this.setState({
       currency,
     });

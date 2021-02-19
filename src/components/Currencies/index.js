@@ -25,7 +25,11 @@ const Currencies = ({ currencies, setCurrency }) => {
 
   return (
     <div className="currencies">
-      <p className="currencies__title">Currencies</p>
+      <input
+        className="currencies__input"
+        type="text"
+        placeholder="Rechercher une devise"
+      />
       <ul className="currencies__list">
         {currenciesList}
       </ul>
