@@ -1,18 +1,23 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // == Imports
 import './style.scss';
 
 // == Composant
-const Amount = () => (
+const Amount = ({ value, currency }) => (
   <div className="amount">
-    <p className="amount__value">1.09</p>
-    <p className="amount__currency">United State Dollar</p>
+    <p className="amount__value">{value}</p>
+    <p className="amount__currency">{currency}</p>
   </div>
 );
 
 // == Props Validation
+Amount.propTypes = {
+  value: PropTypes.number.isRequired,
+  currency: PropTypes.string.isRequired,
+};
 
 // == Export
 export default Amount;
