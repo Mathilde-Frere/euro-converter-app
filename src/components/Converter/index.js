@@ -28,12 +28,12 @@ class Converter extends React.Component {
 
   render() {
     const { open } = this.state;
-    console.log('this.state', this.state);
+    // console.log('this.state', this.state);
 
     return (
       <div className="converter">
         <Header baseAmount={1} />
-        <Toggler onClickButton={this.toggle} />
+        <Toggler onClickButton={this.toggle} isOpen={open} />
         {open && (
           <Currencies currencies={currenciesData} />
         )}
