@@ -21,6 +21,7 @@ class Converter extends React.Component {
     search: '',
   };
 
+  // Fonction chargée de faire varier la valeur de la propriété open du state
   toggle = () => {
     // console.log('je veux faire varier la valeur de open');
     const { open } = this.state;
@@ -29,6 +30,7 @@ class Converter extends React.Component {
     });
   }
 
+  // Fonction chargée de convertir 1 euro dans une autre devise
   makeConversion = () => {
     const { baseAmount, currency } = this.state;
 
@@ -52,10 +54,30 @@ class Converter extends React.Component {
 
   // Fonction chargée de modifier la valeur de la propriété search du state
   setSearch = (value) => {
-    console.log('je veux modifier la valeur de search', value);
+    // console.log('je veux modifier la valeur de search', value);
     this.setState({
       search: value,
     });
+  }
+
+  // Fonction chargée de filtrer les devises en fonction de la recherche
+  getCurrencies = () => {
+    // par défaut => retourne la liste complète des devises (pas de filtre)
+    let filteredCurrencies = currenciesData;
+
+    const { search } = this.state;
+    // si search est truthy => filtrage des devises
+    if (search) {
+      filteredCurrencies = currenciesData.filter((currency) => {
+        // passage des noms des currencies en minuscule pour comparer ce qui est comparable
+        const loweredCurrency = currency.name.toLowerCase();
+        const loweredSearch = search.toLowerCase();
+
+        return loweredCurrency.includes(loweredSearch);
+      });
+    }
+
+    return filteredCurrencies;
   }
 
   render() {
@@ -68,6 +90,7 @@ class Converter extends React.Component {
     // console.log('this.state', this.state);
 
     const convertedAmount = this.makeConversion();
+    const filteredCurrencies = this.getCurrencies();
 
     return (
       <div className="converter">
@@ -75,7 +98,7 @@ class Converter extends React.Component {
         <Toggler onClickButton={this.toggle} isOpen={open} />
         {open && (
           <Currencies
-            currencies={currenciesData}
+            currencies={filteredCurrencies}
             setCurrency={this.setCurrency}
             inputValue={search}
             setSearchValue={this.setSearch}
