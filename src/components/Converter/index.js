@@ -12,32 +12,28 @@ import './style.scss';
 
 // == Composant
 class Converter extends React.Component {
-  constructor(props) {
-    super(props);
+  // Définition du state du composant Converter
+  state = {
+    open: false,
+  };
 
-    // Définition du state du composant Converter
-    this.state = {
-      open: false,
-    };
-
-    // Liaison du contexte de la class (this) à celui de la méthode de class "toggle" via le bind
-    this.toggle = this.toggle.bind(this);
-  }
-
-  toggle() {
-    console.log('je veux faire varier la valeur de open');
+  toggle = () => {
+    // console.log('je veux faire varier la valeur de open');
+    const { open } = this.state;
     this.setState({
-      open: !this.state.open,
+      open: !open,
     });
-    console.log('this.state', this.state);
   }
 
   render() {
+    const { open } = this.state;
+    console.log('this.state', this.state);
+
     return (
       <div className="converter">
         <Header baseAmount={1} />
         <button type="button" onClick={this.toggle}>Toggle</button>
-        {this.state.open && (
+        {open && (
           <Currencies currencies={currenciesData} />
         )}
         <Amount
