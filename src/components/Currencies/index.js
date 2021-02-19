@@ -8,10 +8,16 @@ import Currency from './Currency';
 import './style.scss';
 
 // == Composant
-const Currencies = ({ currencies }) => {
+const Currencies = ({ currencies, setCurrency }) => {
   const currenciesList = currencies.map((currency) => {
     const currencyName = currency.name;
-    return <Currency key={currency.name} text={currencyName} />;
+    return (
+      <Currency
+        key={currency.name}
+        text={currencyName}
+        onClickCurrency={setCurrency}
+      />
+    );
   });
 
   // Version condensée
@@ -34,6 +40,7 @@ Currencies.propTypes = {
       name: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  setCurrency: PropTypes.func.isRequired,
 };
 
 // == Export

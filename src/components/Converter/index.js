@@ -41,6 +41,13 @@ class Converter extends React.Component {
     return Math.round(convertedAmount * 100) / 100;
   }
 
+  // Fonction chargée de changer la valeur de la propriété currency du state
+  setCurrency = (currency) => {
+    this.setState({
+      currency,
+    });
+  }
+
   render() {
     const { open, baseAmount, currency } = this.state;
     // console.log('this.state', this.state);
@@ -52,7 +59,10 @@ class Converter extends React.Component {
         <Header baseAmount={baseAmount} />
         <Toggler onClickButton={this.toggle} isOpen={open} />
         {open && (
-          <Currencies currencies={currenciesData} />
+          <Currencies
+            currencies={currenciesData}
+            setCurrency={this.setCurrency}
+          />
         )}
         <Amount
           value={convertedAmount}
