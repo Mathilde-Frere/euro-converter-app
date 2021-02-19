@@ -44,9 +44,17 @@ class Converter extends React.Component {
 
   // Fonction chargée de changer la valeur de la propriété currency du state
   setCurrency = (currency) => {
-    console.log('je veux changer la valeur de currency', currency);
+    // console.log('je veux changer la valeur de currency', currency);
     this.setState({
       currency,
+    });
+  }
+
+  // Fonction chargée de modifier la valeur de la propriété search du state
+  setSearch = (value) => {
+    console.log('je veux modifier la valeur de search', value);
+    this.setState({
+      search: value,
     });
   }
 
@@ -70,6 +78,7 @@ class Converter extends React.Component {
             currencies={currenciesData}
             setCurrency={this.setCurrency}
             inputValue={search}
+            setSearchValue={this.setSearch}
           />
         )}
         <Amount

@@ -8,7 +8,12 @@ import Currency from './Currency';
 import './style.scss';
 
 // == Composant
-const Currencies = ({ currencies, setCurrency, inputValue }) => {
+const Currencies = ({
+  currencies,
+  setCurrency,
+  inputValue,
+  setSearchValue,
+}) => {
   const currenciesList = currencies.map((currency) => {
     const currencyName = currency.name;
     return (
@@ -30,6 +35,7 @@ const Currencies = ({ currencies, setCurrency, inputValue }) => {
         type="text"
         placeholder="Rechercher une devise"
         value={inputValue}
+        onChange={(event) => setSearchValue(event.target.value)}
       />
       <ul className="currencies__list">
         {currenciesList}
@@ -47,6 +53,7 @@ Currencies.propTypes = {
   ).isRequired,
   setCurrency: PropTypes.func.isRequired,
   inputValue: PropTypes.string.isRequired,
+  setSearchValue: PropTypes.func.isRequired,
 };
 
 // == Export
