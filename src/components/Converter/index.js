@@ -16,6 +16,8 @@ class Converter extends React.Component {
   // Définition du state du composant Converter
   state = {
     open: false,
+    baseAmount: 1,
+    currency: 'United States Dollar',
   };
 
   toggle = () => {
@@ -26,20 +28,35 @@ class Converter extends React.Component {
     });
   }
 
+  makeConversion = () => {
+    const { baseAmount, currency } = this.state;
+
+    // Recherche du taux de change
+    const foundCurrency = currenciesData.find((element) => element.name === currency);
+
+    // Réalisation de la convertion qui sera renvoyée
+    const convertedAmount = baseAmount * foundCurrency.rate;
+
+    // Arrondi au centième
+    return Math.round(convertedAmount * 100) / 100;
+  }
+
   render() {
-    const { open } = this.state;
+    const { open, baseAmount, currency } = this.state;
     // console.log('this.state', this.state);
+
+    const convertedAmount = this.makeConversion();
 
     return (
       <div className="converter">
-        <Header baseAmount={1} />
+        <Header baseAmount={baseAmount} />
         <Toggler onClickButton={this.toggle} isOpen={open} />
         {open && (
           <Currencies currencies={currenciesData} />
         )}
         <Amount
-          value={1.09}
-          currency="United State Dollar"
+          value={convertedAmount}
+          currency={currency}
         />
       </div>
     );
