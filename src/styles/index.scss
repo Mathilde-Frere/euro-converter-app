@@ -2,5 +2,6 @@
 @use 'vars' as v;
 
 body {
-  font-family: sans-serif;
+   background-color: v.$color-alt;
+   font-family: 'Spartan', sans-serif;
 }
