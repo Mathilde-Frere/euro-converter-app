@@ -3,6 +3,7 @@ import React from 'react';
 
 // == Imports
 import Header from 'src/components/Header';
+import Toggler from 'src/components/Toggler';
 import Currencies from 'src/components/Currencies';
 import Amount from 'src/components/Amount';
 
@@ -32,7 +33,7 @@ class Converter extends React.Component {
     return (
       <div className="converter">
         <Header baseAmount={1} />
-        <button type="button" onClick={this.toggle}>Toggle</button>
+        <Toggler onClick={this.toggle} />
         {open && (
           <Currencies currencies={currenciesData} />
         )}
