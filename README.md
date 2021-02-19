@@ -13,12 +13,12 @@ Avoir installé Yarn sur sa machine (voir [la doc](https://yarnpkg.com/getting-s
 
 ### Installer le projet
 
-Lancer la commande `yarn` pour installer les dépendances nécessaires au fonctionnement du projet
+Exéctuer la commande `yarn` pour installer les dépendances nécessaires au fonctionnement du projet.
 ```
 yarn
 ```
 
-Puis lancer la commande `yarn start` pour lancer le projet
+Puis exécuter la commande `yarn start` pour lancer le projet. Le navigateur s'ouvre automatiquement sur le port `localhost:8080`.
 
 ```
 yarn start
