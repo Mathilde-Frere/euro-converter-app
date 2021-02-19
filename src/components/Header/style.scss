@@ -17,9 +17,10 @@
     border: none;
     font-family: 'Spartan', sans-serif;
     color: v.$color-light;
-    width: 100px;
+    width: 100%;
     font-size: 1em;
     text-align: center;
     padding: v.$gutter / 2 0;
+    margin-bottom: 0.8rem;
   }
 }
